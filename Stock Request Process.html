@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عملية طلب المخزون</title>
+    <style>
+        /* General Styling */
+        :root {
+            --primary-color: #5D5CDE;
+            --light-bg: #FFFFFF;
+            --dark-bg: #181818;
+            --light-text: #333333;
+            --dark-text: #F0F0F0;
+            --light-border: #DDDDDD;
+            --dark-border: #444444;
+            --light-card: #F9F9F9;
+            --dark-card: #252525;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--dark-border);
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        /* Content Styling */
+        p {
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            padding-right: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .actor-card {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-right: 4px solid var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .scenario {
+            background-color: rgba(93, 92, 222, 0.2);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        .scenario-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        /* Image Container Styling */
+        .image-container {
+            margin: 25px 0;
+        }
+        
+        .responsive-image-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            background-color: var(--dark-bg);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .responsive-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-width: 100%;
+        }
+        
+        figure {
+            margin: 0;
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: var(--dark-text);
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>عملية طلب المخزون</h1>
+        </header>
+        
+        <section>
+            <h2>وصف النظام</h2>
+            <p>
+                يؤتمت النظام عملية طلب مخزون فعّالة، تشمل البائعين ومدير المستودع، وإدارة المخزون من خلال Zoho CRM و Zoho Inventory. يُسهّل النظام
+                عمليات تقديم طلبات المخزون والموافقة عليها والإشعار بها، مما يضمن فحصًا دقيقًا لتوافر المخزون والامتثال لحدود السجل. بعد الموافقة، يُعيّن
+                النظام تلقائيًا الطلبات للبائع المعني، مما يُبسّط إدارة المخزون.
+            </p>
+        </section>
+        
+        <section>
+            <h2>أوصاف الجهات الفاعلة</h2>
+            
+            <div class="actor-card">
+                <div class="actor-title">البائع (S)</div>
+                <p>
+                    يتولى البائع مسؤولية تقديم طلبات المخزون إلى Zoho CRM، مع توفير التفاصيل الأساسية مثل الاسم والهوية والتاريخ والوقت والأصناف
+                    والكمية. بعد الحصول على الموافقة، يُقرّ البائع باستلام الطلب، مما يضمن دقة التواصل طوال العملية.
+                </p>
+            </div>
+            
+            <div class="actor-card">
+                <div class="actor-title">زوهو CRM</div>
+                <p>
+                    يُمثّل Zoho CRM المحور الرئيسي لإدارة طلبات المخزون والإشعارات. يُحيل الطلبات إلى مدير المستودع للموافقة عليها، ويُدير التواصل بين
+                    البائع ومدير المستودع، مما يضمن سير العمل بسلاسة وتوثيق الإشعارات.
+                </p>
+            </div>
+            
+            <div class="actor-card">
+                <div class="actor-title">مدير المستودع (WM)</div>
+                <p>
+                    يراجع مدير المستودع طلبات المخزون التي يقدمها البائع، ويتحقق من توفر المخزون وحدود سجل البائع للتأكد من الامتثال. يتمتع المدير
+                    بصلاحية الموافقة على الطلبات أو رفضها، وهو مسؤول عن ضمان اتباع إجراءات المخزون بشكل صحيح.
+                </p>
+            </div>
+            
+            <div class="actor-card">
+                <div class="actor-title">مخزون زوهو (ZI)</div>
+                <p>
+                    يدير نظام Zoho للمخزون عمليات المخزون والنقل. يتحقق من توفر المخزون، ويُنشئ أوامر النقل، ويُخصص الطلبات المعتمدة تلقائيًا للبائع
+                    المناسب (المستودع الفرعي). يضمن النظام تنفيذ جميع مهام المخزون بكفاءة دون تدخل يدوي.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>مخطط تدفق العملية</h2>
+            <div class="image-container">
+                <figure>
+                    <div class="responsive-image-wrapper">
+                        <img id="flowchart" class="responsive-image" alt="مخطط تدفق عملية طلب المخزون" src="your-svg-link-here">
+                    </div>
+                    <figcaption>الشكل 1: مخطط تدفق عملية طلب المخزون</figcaption>
+                </figure>
+            </div>
+        </section>
+        
+        <section>
+            <h2>مسؤوليات الجهة الفاعلة</h2>
+            <p>
+                فيما يلي وصف تفصيلي لمسؤوليات كل جهة فاعلة في عملية طلب المخزون، مع مخطط التسلسل، ومثال سيناريو للسياق.
+            </p>
+            
+            <h3>1. بائع (بائع)</h3>
+            <div class="actor-card">
+                <strong>المسؤوليات:</strong>
+                <ul>
+                    <li>إرسال طلبات المخزون إلى Zoho CRM، مع توفير التفاصيل الأساسية مثل الاسم، والهوية، والتاريخ والوقت، والأصناف، والكمية.</li>
+                    <li>ضمان دقة الطلبات واكتمالها، والالتزام بسياسات الشركة واحتياجات المخزون.</li>
+                    <li>تأكيد استلام إشعارات الموافقة أو الرفض من Zoho CRM.</li>
+                </ul>
+                
+                <div class="scenario">
+                    <div class="scenario-title">مثال سيناريو:</div>
+                    <p>
+                        يُحدد بائع حاجته إلى مخزون إضافي من منتج معين. يُسجل دخوله إلى Zoho CRM، ويُملأ نموذج طلب المخزون بالتفاصيل اللازمة، ويُرسله للمراجعة.
+                    </p>
+                </div>
+            </div>
+            
+            <h3>2. زوهو CRM</h3>
+            <div class="actor-card">
+                <strong>المسؤوليات:</strong>
+                <ul>
+                    <li>يعمل كمركز رئيسي لإدارة طلبات المخزون وتسهيل التواصل بين البائع ومدير المستودع.</li>
+                    <li>يُحيل طلبات المخزون من البائع إلى مدير المستودع للموافقة عليها.</li>
+                    <li>يُرسل إشعارات إلى البائع بشأن حالة طلباته (موافق عليها أو مرفوضة) ويُدير عملية الإقرار.</li>
+                </ul>
+                
+                <div class="scenario">
+                    <div class="scenario-title">مثال على السيناريو:</div>
+                    <p>
+                        بعد أن يُرسل البائع طلب المخزون، يُحيل Zoho CRM الطلب تلقائيًا إلى مدير المستودع للموافقة عليه. بمجرد أن يتخذ مدير المستودع قرارًا، يُخطر ZCRM
+                        البائع بالموافقة أو الرفض.
+                    </p>
+                </div>
+            </div>
+            
+            <h3>3. مدير المستودع (WM)</h3>
+            <div class="actor-card">
+                <strong>المسؤوليات:</strong>
+                <ul>
+                    <li>يُراجع طلبات المخزون المُقدمة من البائع، ويتحقق من توفر الأصناف المطلوبة في مخزون Zoho.</li>
+                    <li>يُراجع سجلّ البائع لضمان الامتثال لسياسات الشركة. فرضا اذا كان يوجد على البائع ديون مسبقة فلا تتم الموافقة.</li>
+                    <li>يقرر ما إذا كان سيتم الموافقة على طلبات المخزون أو رفضها بناءً على حدود التوفر والسجل.</li>
+                    <li>يبدأ إنشاء أوامر نقل في Zoho Inventory عند الموافقة.</li>
+                </ul>
+                
+                <div class="scenario">
+                    <div class="scenario-title">مثال على السيناريو:</div>
+                    <p>
+                        يستلم مدير المستودع طلب المخزون من Zoho CRM. بعد التحقق من المخزون وسجل طلبات البائع السابقة، يوافق على الطلب. ثم يُوجّه Zoho
+                        Inventory لإنشاء أمر نقل للأصناف المطلوبة.
+                    </p>
+                </div>
+            </div>
+            
+            <h3>4. زوهو Inventory</h3>
+            <div class="actor-card">
+                <strong>المسؤوليات:</strong>
+                <ul>
+                    <li>إدارة عمليات المخزون والنقل، وضمان الحفاظ على مستويات المخزون.</li>
+                    <li>التحقق من توافر المخزون عند طلب مدير المستودع، وإنشاء أوامر النقل حسب الحاجة.</li>
+                    <li>تعيين الطلبات المعتمدة تلقائيًا للبائع المعني في المستودع الفرعي.</li>
+                </ul>
+                
+                <div class="scenario">
+                    <div class="scenario-title">مثال على السيناريو:</div>
+                    <p>
+                        بعد الحصول على موافقة مدير المستودع، يُنشئ Zoho Inventory أمر نقل للأصناف المطلوبة، ويُعيّن الطلب باسم البائع. يضمن النظام تحديث المخزون وتوزيعه بدقة.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>ملخص المسؤوليات</h2>
+            <ul>
+                <li><strong>بائع:</strong> يُنشئ طلبات المخزون، ويضمن دقتها واكتمالها.</li>
+                <li><strong>زوهو CRM:</strong> يُسهّل التواصل ويُدير تدفق الطلبات والإشعارات.</li>
+                <li><strong>مدير المستودع:</strong> يراجع الطلبات، ويتحقق من المخزون والامتثال، ويُوافق على الطلبات أو يرفضها.</li>
+                <li><strong>مخزون Zoho:</strong> يُدير إدارة المخزون ويُعالج الطلبات، ويضمن التوزيع والتحديثات المناسبة.</li>
+            </ul>
+            <p>
+                تُوضح هذه المسؤوليات دور كل جهة فاعلة والسيناريوهات في عملية طلب المخزون، مما يضمن كفاءة التواصل وإدارة المخزون.
+            </p>
+        </section>
+        
+        <section>
+            <h2>مخطط المسارات</h2>
+            <div class="image-container">
+                <figure>
+                    <div class="responsive-image-wrapper">
+                        <img id="swimlane" class="responsive-image" alt="مخطط المسارات لعملية طلب المخزون" src="your-svg-link-here">
+                    </div>
+                    <figcaption>الشكل 2: مخطط المسارات لعملية طلب المخزون</figcaption>
+                </figure>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Always set dark mode
+        document.documentElement.classList.add('dark');
+    </script>
+</body>
+</html>
